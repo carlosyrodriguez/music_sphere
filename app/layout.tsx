@@ -2,8 +2,8 @@ import { Inter } from "next/font/google"
 import type React from "react" // Import React
 
 import "./globals.css"
-import SiteHeader from "@/components/site-header"
-import { HeaderMenu } from "@/components/site-header";
+import SiteHeader from "@/app/site-header"
+import { HeaderMenu } from "@/app/site-header";
 
 const inter = Inter({ subsets: ["latin"] })
 

@@ -16,9 +16,9 @@ export default function SiteHeader() {
               alt="Logo"
               width={24}
               height={24}
-              className="h-7 w-7"
+              className="h-9 w-9"
             />
-            <span className="hidden font-bold sm:inline-block">music sphere</span>
+            <span className="font-bold sm:inline-block text-2xl">music sphere</span>
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end">
@@ -41,7 +41,6 @@ export function HeaderMenu() {
       <nav className="flex justify-center">
         <ul className="flex space-x-6 text-lg">
           <li><a href="#" className="hover:text-gray-400">New Music</a></li>
-          <li><a href="#" className="hover:text-gray-400">Trending</a></li>
           <li><a href="#" className="hover:text-gray-400">Genres</a></li>
           <li><a href="#" className="hover:text-gray-400">Charts</a></li>
           <li><a href="#" className="hover:text-gray-400">Playlists</a></li>
