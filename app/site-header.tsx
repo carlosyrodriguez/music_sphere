@@ -3,6 +3,7 @@ import { Search } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { HeaderMenu } from "@/components/header-menu"
+import { MobileHeaderMenu } from "@/components/mobile-header-menu"
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Head from "next/head";
