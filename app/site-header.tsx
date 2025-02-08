@@ -13,8 +13,8 @@ export default function SiteHeader() {
   return (
     <div className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-0.5">
       <div className="px-3 flex h-14 max-w-screen-2xl items-center">
-        <div className="flex items-center space-x-10 flex-nowrap">
-          <Link href="/" className="flex items-center space-x-1">
+        <div className="flex items-center space-x-4 flex-nowrap">
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/music-sphere.svg" 
               alt="Logo"
@@ -24,7 +24,7 @@ export default function SiteHeader() {
             />
             <span className="font-bold text-2xl whitespace-nowrap ">music sphere</span>
           </Link>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex mt-1.5">
           <HeaderMenu />
           </div>
         </div>
