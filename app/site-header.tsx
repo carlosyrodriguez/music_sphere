@@ -2,8 +2,10 @@
 import { Search } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { HeaderMenu } from "@/components/header-menu"
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Head from "next/head";
 
 export default function SiteHeader() {
 
@@ -21,7 +23,9 @@ export default function SiteHeader() {
             />
             <span className="font-bold text-2xl whitespace-nowrap ">music sphere</span>
           </Link>
+          <div className="hidden md:flex">
           <HeaderMenu />
+          </div>
         </div>
         <div className="flex flex-1 items-center justify-end">
           <button
@@ -35,19 +39,4 @@ export default function SiteHeader() {
       </div>
     </div>
   )
-}
-
-export function HeaderMenu() {
-  return (
-    <header className="w-full  border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-center py-2">
-      <nav className="flex justify-center">
-        <ul className="flex space-x-6 text-md">
-          <li><a href="#" className="hover:text-gray-400 pl-4 border-l">New Music</a></li>
-          <li><a href="#" className="hover:text-gray-400 ">Genres</a></li>
-          <li><a href="#" className="hover:text-gray-400">Charts</a></li>
-          <li><a href="#" className="hover:text-gray-400 pr-4 border-r">Playlists</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
 }

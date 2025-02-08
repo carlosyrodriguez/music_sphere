@@ -3,7 +3,7 @@ import type React from "react" // Import React
 
 import "./globals.css"
 import SiteHeader from "@/app/site-header"
-import { HeaderMenu } from "@/app/site-header";
+import { HeaderMenu } from "@/components/header-menu";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -17,7 +17,6 @@ export default function RootLayout({
       <body className={`${inter.className} min-h-screen bg-background font-sans antialiased`}>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
-          <HeaderMenu />
           <main className="flex-1">{children}</main>
         </div>
       </body>
