@@ -4,9 +4,8 @@ export default async function handler(req, res) {
         if (!tokenRes.ok) throw new Error("Failed to fetch access token");
         const tokenData = await tokenRes.json();
         const accessToken = tokenData.access_token;
-        console.log("Access Token:", accessToken);  // Log the token to verify it's correct
 
-        const playlistId = '37i9dQZEVXbMDoHDwVN2tF';  // Top 50 Global
+        const playlistId = '37i9dQZEVXbMDoHDwVN2tF'; // Top 50 Global
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
             headers: { Authorization: `Bearer ${accessToken}` },
         });
@@ -17,8 +16,6 @@ export default async function handler(req, res) {
         }
 
         const data = await response.json();
-        console.log("Spotify API Data:", data);  // Log the data from Spotify
-
         const tracks = data.items.map((item, index) => ({
             rank: index + 1,
             name: item.track.name,
@@ -32,4 +29,10 @@ export default async function handler(req, res) {
         console.error("API Error:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
+}
+
+export async function GET() {
+    return new Response(JSON.stringify({ message: "API is working!" }), {
+        headers: { "Content-Type": "application/json" },
+    });
 }

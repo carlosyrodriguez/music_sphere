@@ -35,7 +35,10 @@ export default function SiteHeader() {
           >
             <Search className="h-5 w-5" />
           </button>
-          <Button href="/auth/login" className="ml-2 rounded-xl px-4 ">Sign In</Button>
+          <Link href="/auth/login" passHref>
+            <Button className="ml-2 rounded-xl px-4">Sign In</Button>
+          </Link>
+
         </div>
       </div>
     </div>
