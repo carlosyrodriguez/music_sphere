@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3.9%;
+    --background: 258 12% 7%;
     --foreground: 0 0% 98%;
 
     --card: 0 0% 3.9%;
@@ -33,9 +33,7 @@
     --ring: 0 0% 83.1%;
   }
 
-  .dark {
-    /* Removed light mode styles */
-  }
+  .dark {}
 }
 
 @layer base {

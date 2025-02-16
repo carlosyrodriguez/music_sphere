@@ -11,7 +11,7 @@ import Head from "next/head";
 export default function SiteHeader() {
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 py-0.5">
+    <div className="sticky top-0 z-50 w-full border-border/50 bg-gradient-to-b from-background/85 to-transparent/0 py-0.5">
       <div className="px-3 flex h-14 max-w-screen-2xl items-center">
         <div className="flex items-center space-x-4 flex-nowrap">
           <Link href="/" className="flex items-center space-x-2">
@@ -22,7 +22,7 @@ export default function SiteHeader() {
               height={24}
               className="h-9 w-9"
             />
-            <span className="font-bold text-2xl whitespace-nowrap ">music sphere</span>
+            <span className="font-bold text-2xl whitespace-nowrap drop-shadow-md">music sphere</span>
           </Link>
           <div className="hidden md:flex mt-1.5">
           <HeaderMenu />
@@ -36,9 +36,8 @@ export default function SiteHeader() {
             <Search className="h-5 w-5" />
           </button>
           <Link href="/auth/login" passHref>
-            <Button className="ml-2 rounded-xl px-4">Sign In</Button>
+            <Button className="ml-2 rounded-xl px-4">Account</Button>
           </Link>
-
         </div>
       </div>
     </div>

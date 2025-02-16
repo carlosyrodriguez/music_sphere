@@ -5,7 +5,6 @@ export function MobileHeaderMenu() {
         <ul className="flex space-x-6 text-md">
           <li><a href="#" className="hover:text-gray-400 pr-4 border-r">New Music</a></li>
           <li><a href="#" className="hover:text-gray-400 pr-4 border-r">Genres</a></li>
-          <li><a href="#" className="hover:text-gray-400 pr-4 border-r">Charts</a></li>
           <li><a href="#" className="hover:text-gray-400">Playlists</a></li>
         </ul>
       </nav>
