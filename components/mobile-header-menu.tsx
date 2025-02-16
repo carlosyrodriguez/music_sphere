@@ -4,8 +4,8 @@ export function MobileHeaderMenu() {
       <nav className="flex justify-center">
         <ul className="flex space-x-6 text-md">
           <li><a href="#" className="hover:text-gray-400 pr-4 border-r">New Music</a></li>
-          <li><a href="#" className="hover:text-gray-400 pr-4 border-r">Genres</a></li>
-          <li><a href="#" className="hover:text-gray-400">Playlists</a></li>
+          <li><a href="#" className="hover:text-gray-400 pr-4 border-r border-gray-700 border-opacity-50">Genres</a></li>
+          <li><a href="#" className="hover:text-gray-400 ">Playlists</a></li>
         </ul>
       </nav>
     </header>
