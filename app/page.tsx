@@ -44,7 +44,7 @@ export default function Page() {
       </div>
 
       {/* Albums */}
-      <div className="flex flex-col justify-center h-10">
+      <div className="flex flex-col justify-center mx-4 h-10">
         <h2 className="text-3xl font-bold">New Albums</h2>
         <div className="grid grid-cols-4 gap-4 mt-6">
           <Card className="bg-cover bg-center h-[300px]" style={{ backgroundImage: "url('/images/LadyGaga+BrunoMars-DWS.avif')" }}></Card>
