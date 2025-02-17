@@ -49,7 +49,7 @@ export default function Page() {
   return (
     <div className="relative w-full min-h-screen">
       {/* Background Slideshow */}
-      <div className="fixed top-0 left-0 w-full z-10 h-[60vh] overflow-hidden">
+      <div className="relative top-0 left-0 w-full z-10 h-[60vh] overflow-hidden">
         {images.map((image, i) => (
           <div
             key={i}
@@ -59,15 +59,16 @@ export default function Page() {
             style={{ backgroundImage: `url(${image})` }}
           />
         ))}
-        <div className="absolute bottom-0 left-0 w-full h-[35vh] bg-gradient-to-b from-transparent to-background"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[45vh] bg-gradient-to-b from-transparent to-background"></div>
       </div>
 
       {/* Welcome Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center h-[70vh] text-white drop-shadow-50">
+      <div className=" absolute top-[35vh] z-10 flex flex-col items-center justify-center text-center text-white drop-shadow-50 w-full">
         <p className="text-4xl font-bold drop-shadow-md">Welcome to Music Sphere!</p>
         <p className="mt-4 text-lg drop-shadow-md">Review, Save, & Share your passion for music.</p>
          {/* Button to Show Card */}
          <Button className="mt-8" onClick={() => setIsOpen(true)}>Share your Opinion</Button>
+         <p className="mt-4 text-sm drop-shadow-md text-gray-400"> Explore </p>
       </div>
 
       {/* Pop-up Card */}
@@ -91,21 +92,26 @@ export default function Page() {
         </div>
       )}
         {/* Albums Section */}
-        <div className="flex flex-col justify-center mx-4 z-50">
+      
+      {/* old bad code, keep for reference
+        <div className="flex flex-col justify-center mx-4 mt-8 z-50">
         <h2 className="text-3xl font-bold">New Albums</h2>
         <div className="grid grid-cols-4 gap-4 mt-6">
-          <Card className="bg-cover bg-center h-[300px] w-[170px]" style={{ backgroundImage: "url('/images/LadyGaga+BrunoMars-DWS.avif')" }}></Card>
+          <Card className="bg-cover bg-center md:h-[100px] w-[100px]" style={{ backgroundImage: "url('/images/LadyGaga+BrunoMars-DWS.avif')" }}></Card>
           <Card className="bg-cover bg-center h-[300px]" style={{ backgroundImage: "url('/images/Billie+Eilish+HMHS.jpg')" }}></Card>
           <Card>say</Card>
           <Card>now</Card>
         </div>
+      */}
+
 
         {/* Trending Albums - Dynamic from MusicBrainz */}
-        <h2 className="text-3xl font-bold mt-8">Trending Albums</h2>
-        <div className="grid grid-cols-4 gap-4 mt-6">
+        <h2 className="text-3xl font-bold mt-20 my-4 mx-2">Trending Albums</h2>
+        <div className="relative w-full overflow-x-auto">
+          <div className="flex space-x-4 p-2">
           {albums.length > 0 ? (
             albums.map((album) => (
-              <Card key={album.id} className="relative bg-cover bg-center h-[300px] w-[170px]" style={{ backgroundImage: `url(${album.imageUrl})` }}>
+              <Card key={album.id} className="relative bg-cover bg-center h-[220px] w-[140px] sm:h-[260px] sm:w-[160px] md:h-[300px] md:w-[170px] flex-shrink-0" style={{ backgroundImage: `url(${album.imageUrl})` }}>
                 <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
                   <p className="text-sm">{album.title}</p>
                   <p className="text-xs">{album.artist}</p>
@@ -115,7 +121,7 @@ export default function Page() {
           ) : (
             // Placeholder Cards
             Array.from({ length: 8 }).map((_, index) => (
-              <Card key={index} className="bg-gray-200 h-[300px] w-[170px] animate-pulse flex items-center justify-center">
+              <Card key={index} className="bg-gray-200 h-[220px] w-[140px] sm:h-[260px] sm:w-[160px] md:h-[300px] md:w-[170px] animate-pulse flex items-center justify-center flex-shrink-0">
                 <p>Loading...</p>
               </Card>
             ))

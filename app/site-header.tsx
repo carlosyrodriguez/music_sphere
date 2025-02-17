@@ -10,7 +10,7 @@ import Head from "next/head";
 export default function SiteHeader() {
 
   return (
-    <div className="relative top-0 z-50 w-full justify-center border-border/50 bg-gradient-to-b from-background/85 to-transparent py-2 sm:backdrop-blur-md backdrop-blur-none">
+    <div className="relative top-1 z-50 w-full justify-center border-border/50 bg-gradient-to-b from-background/85 to-transparent py-2">
       <div className="px-3 flex h-14 max-w-screen-2xl items-center">
         <div className="flex items-center space-x-4 flex-nowrap">
           <Link href="/" className="flex items-center space-x-2">
