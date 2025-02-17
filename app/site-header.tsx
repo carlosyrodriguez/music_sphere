@@ -10,7 +10,7 @@ import Head from "next/head";
 export default function SiteHeader() {
 
   return (
-    <div className="sticky top-0 z-50 w-full justify-center border-border/50 bg-gradient-to-b from-background/85 to-transparent/0 py-0.5">
+    <div className="relative top-0 z-50 w-full justify-center border-border/50 bg-gradient-to-b from-background/85 to-transparent py-2 sm:backdrop-blur-md backdrop-blur-none">
       <div className="px-3 flex h-14 max-w-screen-2xl items-center">
         <div className="flex items-center space-x-4 flex-nowrap">
           <Link href="/" className="flex items-center space-x-2">
@@ -21,7 +21,7 @@ export default function SiteHeader() {
               height={24}
               className="h-9 w-9"
             />
-            <span className="font-bold text-2xl whitespace-nowrap drop-shadow-md">Music Sphere</span>
+            <span className="font-bold text-2xl whitespace-nowrap drop-shadow-md z-50">Music Sphere</span>
           </Link>
           <div className="hidden md:flex mt-1.5">
           <HeaderMenu />

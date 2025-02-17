@@ -4,6 +4,7 @@ import type React from "react" // Import React
 import "./globals.css"
 import SiteHeader from "@/app/site-header"
 import { MobileHeaderMenu } from "@/components/mobile-header-menu";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] })
 
