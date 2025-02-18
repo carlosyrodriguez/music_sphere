@@ -111,7 +111,7 @@ export default function Page() {
           <div className="flex space-x-4 p-2">
           {albums.length > 0 ? (
             albums.map((album) => (
-              <Card key={album.id} className="relative bg-cover bg-center h-[220px] w-[140px] sm:h-[260px] sm:w-[160px] md:h-[300px] md:w-[170px] flex-shrink-0" style={{ backgroundImage: `url(${album.imageUrl})` }}>
+              <Card key={album.id} className="relative bg-cover bg-center h-[220px] w-[140px] sm:h-[230px] sm:w-[130px] md:h-[300px] md:w-[170px] flex-shrink-0" style={{ backgroundImage: `url(${album.imageUrl})` }}>
                 <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
                   <p className="text-sm">{album.title}</p>
                   <p className="text-xs">{album.artist}</p>
