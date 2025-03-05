@@ -91,27 +91,12 @@ export default function Page() {
           </Card>
         </div>
       )}
-        {/* Albums Section */}
-      
-      {/* old bad code, keep for reference
-        <div className="flex flex-col justify-center mx-4 mt-8 z-50">
-        <h2 className="text-3xl font-bold">New Albums</h2>
-        <div className="grid grid-cols-4 gap-4 mt-6">
-          <Card className="bg-cover bg-center md:h-[100px] w-[100px]" style={{ backgroundImage: "url('/images/LadyGaga+BrunoMars-DWS.avif')" }}></Card>
-          <Card className="bg-cover bg-center h-[300px]" style={{ backgroundImage: "url('/images/Billie+Eilish+HMHS.jpg')" }}></Card>
-          <Card>say</Card>
-          <Card>now</Card>
-        </div>
-      */}
-
-
-        {/* Trending Albums - Dynamic from MusicBrainz */}
-        <h2 className="text-3xl font-bold mt-20 my-4 mx-2">Trending Albums</h2>
+        <h2 className="text-3xl font-bold mt-20 my-4 mx-2">Explore Music</h2>
         <div className="relative w-full overflow-x-auto">
           <div className="flex space-x-4 p-2">
           {albums.length > 0 ? (
             albums.map((album) => (
-              <Card key={album.id} className="relative bg-cover bg-center h-[220px] w-[140px] sm:h-[230px] sm:w-[130px] md:h-[300px] md:w-[170px] flex-shrink-0" style={{ backgroundImage: `url(${album.imageUrl})` }}>
+              <Card key={album.id} className="relative bg-cover bg-center h-[140px] w-[140px] sm:h-[130px] sm:w-[130px] md:h-[170px] md:w-[170px] flex-shrink-0" style={{ backgroundImage: `url(${album.imageUrl})` }}>
                 <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
                   <p className="text-sm">{album.title}</p>
                   <p className="text-xs">{album.artist}</p>
@@ -121,7 +106,7 @@ export default function Page() {
           ) : (
             // Placeholder Cards
             Array.from({ length: 8 }).map((_, index) => (
-              <Card key={index} className="bg-gray-200 h-[220px] w-[140px] sm:h-[260px] sm:w-[160px] md:h-[300px] md:w-[170px] animate-pulse flex items-center justify-center flex-shrink-0">
+              <Card key={index} className="bg-gray-200 h-[140px] w-[140px] sm:h-[160px] sm:w-[160px] md:h-[170px] md:w-[170px] animate-pulse flex items-center justify-center flex-shrink-0">
                 <p>Loading...</p>
               </Card>
             ))

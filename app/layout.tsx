@@ -20,6 +20,7 @@ export default function RootLayout({
           <SiteHeader />
           <MobileHeaderMenu />
           <main className="flex-1">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
