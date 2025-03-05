@@ -1,3 +1,5 @@
-Building a website for all things music.
+Top Music Viewing and Reviewing Website, just practicing my front end dev skills, hands on learner.
 
-Planning on supporting user reviews, charting music, user playlists from different platforms, and much more.
+Progress so far:
+
+![alt text](image.png)

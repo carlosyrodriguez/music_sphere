@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 const images = [
@@ -23,28 +24,38 @@ export default function Page() {
 
     // Fetch albums from MusicBrainz API
     useEffect(() => {
-      const fetchAlbums = async () => {
+      const fetchTopAlbums = async () => {
         try {
           const response = await fetch(
-            "https://musicbrainz.org/ws/2/release-group?fmt=json&limit=8&offset=0&query=primarytype:album"
+            `https://ws.audioscrobbler.com/2.0/?method=geo.gettopalbums&country=United%20States&api_key=b9f3e1110e8aed797e25c70eb330ff6e&format=json`
           );
+    
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+    
           const data = await response.json();
-  
-          const albumData = data["release-groups"]?.map((album) => ({
-            id: album.id,
-            title: album.title,
-            artist: album["artist-credit"]?.[0]?.name || "Unknown Artist",
-            imageUrl: `https://coverartarchive.org/release-group/${album.id}/front`, // Attempt to get cover art
-          })) || [];
-  
+          console.log("API Response:", data);
+    
+          if (!data.topalbums || !data.topalbums.album) {
+            throw new Error("Unexpected API response structure");
+          }
+    
+          const albumData = data.topalbums.album.map((album) => ({
+            id: album.mbid || album.name.replace(/\s+/g, '-').toLowerCase(),
+            title: album.name,
+            artist: album.artist.name,
+            imageUrl: album.image?.[3]?.["#text"] || "/placeholder.jpg",
+          }));
+    
           setAlbums(albumData);
         } catch (error) {
-          console.error("Error fetching albums:", error);
+          console.error("Error fetching top albums:", error);
         }
       };
-  
-      fetchAlbums();
-    }, []);
+    
+      fetchTopAlbums();
+    }, []);    
 
   return (
     <div className="relative w-full min-h-screen">
@@ -96,12 +107,14 @@ export default function Page() {
           <div className="flex space-x-4 p-2">
           {albums.length > 0 ? (
             albums.map((album) => (
-              <Card key={album.id} className="relative bg-cover bg-center h-[140px] w-[140px] sm:h-[130px] sm:w-[130px] md:h-[170px] md:w-[170px] flex-shrink-0" style={{ backgroundImage: `url(${album.imageUrl})` }}>
-                <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
-                  <p className="text-sm">{album.title}</p>
-                  <p className="text-xs">{album.artist}</p>
-                </div>
-              </Card>
+              <Link key={album.id} href={`/albums/${album.id}`} passHref>
+                <Card className="relative bg-cover bg-center h-[140px] w-[140px] sm:h-[130px] sm:w-[130px] md:h-[170px] md:w-[170px] flex-shrink-0 cursor-pointer" style={{ backgroundImage: `url(${album.imageUrl})` }}>
+                  <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
+                    <p className="text-sm">{album.title}</p>
+                    <p className="text-xs">{album.artist}</p>
+                  </div>
+                </Card>
+              </Link>
             ))
           ) : (
             // Placeholder Cards
